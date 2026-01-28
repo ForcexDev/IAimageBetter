@@ -50,7 +50,7 @@ function App() {
       const response = await axios.post(`${API_URL}/enhance`, formData, {
         responseType: 'blob',
         headers: { 'Content-Type': 'multipart/form-data' },
-        timeout: 300000
+        timeout: 0 // No client timeout, let Nginx handle it
       })
 
       const imageUrl = URL.createObjectURL(response.data)
