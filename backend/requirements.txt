@@ -7,4 +7,7 @@ numpy
 Pillow
 python-dotenv
 aiofiles
+realesrgan
+basicsr
+opencv-python-headless
 
