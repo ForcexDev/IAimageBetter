@@ -37,6 +37,8 @@ services:
 networks:
   app-network:
     driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: "1300"
 
 volumes:
   redis_data:
