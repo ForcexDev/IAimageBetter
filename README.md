@@ -3,13 +3,26 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Powered by Real-ESRGAN](https://img.shields.io/badge/Model-Real--ESRGAN-blue)](https://github.com/xinntao/Real-ESRGAN)
 
-**IAimageBetter** is a powerful, locally hosted web application for upscaling and enhancing images using Artificial Intelligence (Real-ESRGAN). 
+**IAimageBetter** is a powerful, locally hosted web application for upscaling and enhancing images using Artificial Intelligence (Real-ESRGAN).
 
 🚀 **This is the Community Edition: No limits, no subscriptions, just pure AI performance on your own hardware.**
 
 ![Project Preview](https://github.com/ForcexDev/IAimageBetter/raw/main/preview.png)
 
-## ✨ Features
+## 🌐 Try the Web Demo
+
+Don't want to install anything? Try the hosted production version:
+
+👉 **[Launch Web Demo](https://iaimagebetter.forcex.dev/)**
+
+*   **Optimized for Mobile**: Works perfectly on phones.
+*   **Fast x2 Model**: Enhanced speed for quick results.
+*   **Smart Queue**: Handles high traffic gracefully.
+*   *(Note: The web demo has daily usage limits. Run locally for unlimited use.)*
+
+---
+
+## ✨ Local Features
 
 - **Unlimited Upscaling**: No file size limits, no resolution caps. If your hardware can handle it, you can upscale it.
 - **Privacy First**: 100% offline processing. Your photos never leave your server.
@@ -18,11 +31,11 @@
 - **Modern UI**: Beautiful, responsive interface with Before/After slider and Zoom comparison.
 - **Multi-Language**: English and Spanish support.
 
-## 🛠️ Installation & Deployment
+## �️ Installation & Deployment
 
-The easiest way to run IAimageBetter is using **Docker Compose**.
+The easiest way to run IAimageBetter locally is using **Docker Compose**.
 
-### Prerequisities
+### Prerequisites
 - [Docker](https://www.docker.com/) & Docker Compose installed.
 - (Optional) NVIDIA Drivers & NVIDIA Container Toolkit for GPU acceleration.
 
@@ -79,7 +92,7 @@ docker compose up -d
 - **Queue System**: Redis (Handles job management).
 - **Proxy**: Nginx (Handles large file uploads and long timeouts).
 
-## 🛡️ License
+## �️ License
 
 This project is open source and available under the [MIT License](LICENSE).
 
