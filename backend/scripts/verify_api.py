@@ -11,11 +11,7 @@ try:
     print(f"Status: {r.status_code}")
     print(r.json())
     
-    # 2. Test Limits
-    print("\nTesting /api/limits...")
-    r = requests.get("http://localhost:8000/api/limits")
-    print(f"Limits Status: {r.status_code}")
-    print(r.json())
+
 
     # 3. Test Enhancement (Mock)
     print("\nTesting /api/enhance (Mock)...")
