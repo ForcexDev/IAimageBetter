@@ -7,6 +7,10 @@ services:
     restart: always
     environment:
       - REDIS_URL=redis://redis:6379
+      - ENABLE_LIMITS=false
+      # Performance Tuning (Uncomment to Optimize)
+      # - AI_TILE_SIZE=800  # Default 400. Try 800-1000 for 16GB RAM
+      # - AI_THREADS=4      # Force N CPU threads (default: auto)
     ports:
       - "8521:8000"
     depends_on:

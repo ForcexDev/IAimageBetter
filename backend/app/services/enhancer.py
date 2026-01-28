@@ -9,9 +9,27 @@ class EnhancerService:
     def __init__(self):
         self.model = None
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        print(f"[EnhancerService] Initializing. Target device: {self.device}")
         
-    def _load_model(self):
+        # --- Performance Configuration ---
+        # 1. Tile Size: Higher = Faster but more RAM. Default 400 (Conservative).
+        # On 16GB RAM CPU server, try 800-1000.
+        self.tile_size = int(os.getenv("AI_TILE_SIZE", "400"))
+        
+        # 2. Threads: Force specific CPU core usage.
+        threads = os.getenv("AI_THREADS")
+        if threads:
+            torch.set_num_threads(int(threads))
+            print(f"[EnhancerService] ⚙️ Tuning: CPU Threads set to {threads}")
+
+        # 3. Precision: FP16 (Half) is faster on GPU, but sometimes buggy on CPU.
+        # Auto-detect: True if CUDA, False if CPU (unless forced).
+        self.half_precision = os.getenv("AI_HALF", "auto").lower()
+        if self.half_precision == "auto":
+            self.half_precision = True if self.device.type == 'cuda' else False
+        else:
+            self.half_precision = self.half_precision == "true"
+
+        print(f"[EnhancerService] Initializing. Device: {self.device} | Tile: {self.tile_size} | Half: {self.half_precision}")
         if self.model is not None:
             return
             
@@ -30,10 +48,10 @@ class EnhancerService:
                 scale=4,
                 model_path=model_url,
                 model=model_net,
-                tile=400,  # Tiling enabled to prevent OOM on large images
+                tile=self.tile_size,  # Dynamic Tile Size
                 tile_pad=10,
                 pre_pad=0,
-                half=True if self.device.type == 'cuda' else False,
+                half=self.half_precision, # Dynamic Precision
                 device=self.device,
             )
             print(f"[EnhancerService] Model loaded successfully on {self.device}")
