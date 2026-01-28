@@ -18,7 +18,7 @@ const translations = {
         uploadImage: "Upload image",
         dropHere: "Drop here",
         dragOrClick: "Drag & drop or click to browse",
-        maxSize: "JPG, PNG, WebP • Max 5MB",
+        maxSize: "JPG, PNG, WebP • Max 50MB",
 
         // Processing
         uploadingImage: "Uploading image...",
@@ -50,7 +50,7 @@ const translations = {
         outputSize: "Output",
 
         // Errors
-        fileTooLarge: "File too large. Maximum size is 5MB",
+        fileTooLarge: "File too large. Maximum size is 50MB",
 
         // Footer
         poweredBy: "Powered by Real-ESRGAN"
@@ -72,10 +72,10 @@ const translations = {
         uploadImage: "Subir imagen",
         dropHere: "Suelta aquí",
         dragOrClick: "Arrastra o haz clic para buscar",
-        maxSize: "JPG, PNG, WebP • Máx 5MB",
+        maxSize: "JPG, PNG, WebP • Máx 50MB",
 
         // Errors
-        fileTooLarge: "Archivo demasiado grande. El tamaño máximo es 5MB",
+        fileTooLarge: "Archivo demasiado grande. El tamaño máximo es 50MB",
 
         // Processing
         uploadingImage: "Subiendo imagen...",

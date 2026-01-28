@@ -29,7 +29,7 @@ export function ImageUploader({ onImageSelected, disabled }) {
             'image/png': ['.png'],
             'image/webp': ['.webp']
         },
-        maxSize: 5 * 1024 * 1024,
+        maxSize: 50 * 1024 * 1024, // 50MB for local version (no practical limit)
         multiple: false,
         disabled,
         onDropRejected: (fileRejections) => {
