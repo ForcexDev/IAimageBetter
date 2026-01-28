@@ -7,7 +7,7 @@
 
 🚀 **This is the Community Edition: No limits, no subscriptions, just pure AI performance on your own hardware.**
 
-![Project Preview](https://github.com/ForcexDev/IAimageBetter/raw/main/preview.png)
+![Project Preview](assets/UI.gif)
 
 ## 🌐 Try the Web Demo
 
