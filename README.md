@@ -1,69 +1,87 @@
-# IAimageBetter 🌌
+# IAimageBetter - AI Image Enhancer (Local Unlimited Version)
 
-Professional AI Image Upscaler built with **React**, **FastAPI**, and **Real-ESRGAN**. 
-Transform low-resolution images into high-quality masterpieces using state-of-the-art AI.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Powered by Real-ESRGAN](https://img.shields.io/badge/Model-Real--ESRGAN-blue)](https://github.com/xinntao/Real-ESRGAN)
 
-![IAimageBetter Screenshot](https://via.placeholder.com/800x450.png?text=IAimageBetter+App)
+**IAimageBetter** is a powerful, locally hosted web application for upscaling and enhancing images using Artificial Intelligence (Real-ESRGAN). 
+
+🚀 **This is the Community Edition: No limits, no subscriptions, just pure AI performance on your own hardware.**
+
+![Project Preview](https://github.com/ForcexDev/IAimageBetter/raw/main/preview.png)
 
 ## ✨ Features
 
-- **Professional Upscaling**: Uses `Real-ESRGAN x4plus` for specialized sharpening.
-- **Smart Hardware Detection**: Automatically uses NVIDIA GPU (CUDA) if available, falls back to CPU transparently.
-- **Privacy Focused**: Images are processed in-memory and never stored on the server.
-- **Modern UI**: Single-page "God Mode" interface designed for 4K/1080p screens.
-- **Limits**: Configurable file size and daily usage limits.
+- **Unlimited Upscaling**: No file size limits, no resolution caps. If your hardware can handle it, you can upscale it.
+- **Privacy First**: 100% offline processing. Your photos never leave your server.
+- **Smart Hardware Detection**: Automatically detects CUDA (NVIDIA GPU) or falls back to optimized CPU mode.
+- **Dynamic Performance Tuning**: Customize tile sizes and thread counts to squeeze the most out of your RAM and CPU.
+- **Modern UI**: Beautiful, responsive interface with Before/After slider and Zoom comparison.
+- **Multi-Language**: English and Spanish support.
 
-## 🚀 Quick Start (Local)
+## 🛠️ Installation & Deployment
 
-Run the project locally on your machine.
+The easiest way to run IAimageBetter is using **Docker Compose**.
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v16+)
-- [Python](https://www.python.org/) (v3.9+)
+### Prerequisities
+- [Docker](https://www.docker.com/) & Docker Compose installed.
+- (Optional) NVIDIA Drivers & NVIDIA Container Toolkit for GPU acceleration.
 
-### 1. Backend (Python)
-```bash
-cd backend
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Linux/Mac
-source venv/bin/activate
+### Quick Start
 
-pip install -r requirements.txt
-python -m uvicorn app.main:app --reload
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ForcexDev/IAimageBetter.git
+   cd IAimageBetter
+   ```
+
+2. **Start the application:**
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. **Access the Web Interface:**
+   Open your browser and go to `http://localhost:5193`
+
+## ⚙️ Performance Tuning (Crucial for generic CPUs)
+
+Real-ESRGAN is heavy. You can tune the performance directly in `docker-compose.yml` to match your hardware specs.
+
+### Recommended Settings
+
+| Hardware | AI_TILE_SIZE | AI_THREADS | Notes |
+|----------|--------------|------------|-------|
+| **GPU (NVIDIA)** | 400 (Default) | Auto | Fastest. Keep tile low to avoid VRAM OOM. |
+| **CPU (8GB RAM)** | 400 | Auto | Standard stability. |
+| **CPU (16GB+ RAM)**| **1000+** | **10-12** | **HIGH SPEED CPU**. Uses more RAM to process faster. |
+| **CPU (Low End)** | 200 | 2 | Slow but stable. |
+
+### How to Apply Settings
+
+Edit `docker-compose.yml` and uncomment/adjust these lines in the `backend` service:
+
+```yaml
+    environment:
+      - REDIS_URL=redis://redis:6379
+      # Performance Tuning
+      - AI_TILE_SIZE=1000  # Increase for more RAM usage & speed
+      - AI_THREADS=10      # Number of CPU threads to use
 ```
-*Backend runs on `http://localhost:8000`*
 
-### 2. Frontend (React)
-Open a new terminal:
+Then restart:
 ```bash
-cd frontend
-npm install
-npm run dev
+docker compose up -d
 ```
-*Frontend runs on `http://localhost:5173`*
+
+## 🏗️ Technical Architecture
+
+- **Frontend**: React + Vite + TailwindCSS (Modern, Fast, Responsive).
+- **Backend**: FastAPI + PyTorch + Real-ESRGAN (The AI Brain).
+- **Queue System**: Redis (Handles job management).
+- **Proxy**: Nginx (Handles large file uploads and long timeouts).
+
+## 🛡️ License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
-
-## 🐳 Docker Deployment (Production)
-
-Deploy easily on any server (Ubuntu/Debian recommended).
-
-```bash
-docker-compose up -d --build
-```
-This starts:
-- Frontend (Nginx)
-- Backend (FastAPI)
-- Redis (Rate Limiting)
-
-For detailed operation commands, see [GUIA_NOTION.md](GUIA_NOTION.md) (if available) or the deployment docs.
-
-## 🛠 Tech Stack
-- **Frontend**: React, TailwindCSS, Framer Motion, Lucide Icons.
-- **Backend**: FastAPI, Uvicorn, Torch, Real-ESRGAN.
-- **Infra**: Docker, Redis.
-
-## 📄 License
-MIT License. Created by [ForcexDev](https://github.com/ForcexDev).
+**Created by [ForcexDev](https://github.com/ForcexDev)**
