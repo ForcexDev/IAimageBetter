@@ -3,16 +3,8 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const translations = {
     en: {
         // Header
+        // Header
         subtitle: "AI-powered image enhancement. Professional results.",
-        demosAvailable: "demos available today",
-
-        // Demo counter
-        serverOffline: "Server offline",
-
-        // Tooltip
-        whyLimit: "Why is there a limit?",
-        limitExplanation: "AI image processing consumes a lot of server resources. To keep the service free and available for everyone, we limit daily enhancements.",
-        resetsAt: "Resets at 00:00 UTC",
 
         // Uploader
         uploadImage: "Upload image",
@@ -38,10 +30,6 @@ const translations = {
         share: "Share",
         enhanceAnother: "← Enhance another",
 
-        // Limit reached
-        limitReached: "Limit reached",
-        dailyDemosExhausted: "Daily demos exhausted. Come back tomorrow.",
-
         // Options
         resolutionTitle: "Upscale Factor",
         resolution2x: "2x (Faster)",
@@ -57,16 +45,8 @@ const translations = {
     },
     es: {
         // Header
+        // Header
         subtitle: "Mejora de imágenes con IA. Resultados profesionales.",
-        demosAvailable: "demos disponibles hoy",
-
-        // Demo counter
-        serverOffline: "Servidor offline",
-
-        // Tooltip
-        whyLimit: "¿Por qué hay límite?",
-        limitExplanation: "El procesamiento de imágenes con IA consume muchos recursos del servidor. Para mantener el servicio gratuito y disponible para todos, limitamos las mejoras diarias.",
-        resetsAt: "Se reinicia a las 00:00 UTC",
 
         // Uploader
         uploadImage: "Subir imagen",
@@ -94,10 +74,6 @@ const translations = {
         download: "Descargar",
         share: "Compartir",
         enhanceAnother: "← Mejorar otra",
-
-        // Limit reached
-        limitReached: "Límite alcanzado",
-        dailyDemosExhausted: "Demos diarios agotados. Vuelve mañana.",
 
         // Options
         resolutionTitle: "Factor de escala",
