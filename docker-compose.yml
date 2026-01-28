@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: iaimagebetter-backend
+    restart: always
+    environment:
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: iaimagebetter-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    container_name: iaimagebetter-redis
+    restart: always
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis_data:
