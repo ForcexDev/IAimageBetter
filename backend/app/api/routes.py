@@ -1,8 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Request, Depends, Form
 from fastapi.responses import Response
 from app.services.enhancer import enhancer
-# from app.services.limiter import limiter  <-- PROD
-from app.services.limiter_dev import limiter # <-- DEV (No limits)
+from app.services.limiter import limiter
 import io
 
 router = APIRouter()
