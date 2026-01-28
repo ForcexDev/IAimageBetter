@@ -9,7 +9,7 @@ A professional-grade, self-hosted web application for AI-powered image upscaling
 
 **Community Edition**: No limits, no subscriptions, no cloud dependencies—just pure AI performance on your own hardware.
 
-![Project Preview](assets/UI.gif)
+![Project Preview](assets/UI2.gif)
 
 ---
 
