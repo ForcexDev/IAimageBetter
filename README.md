@@ -246,5 +246,3 @@ Built with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) by Xintao Wang 
 ---
 
 **Developed by [ForcexDev](https://github.com/ForcexDev)**
-
-⭐ Star this repository if you find it useful!
