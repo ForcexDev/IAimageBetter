@@ -5,7 +5,7 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-A professional-grade, self-hosted web application for AI-powered image upscaling and enhancement using Real-ESRGAN. Built with React, Vite, and Tailwind CSS for a modern, performant experience.
+A self-hosted web application for AI-powered image upscaling and enhancement using Real-ESRGAN. Built with React, Vite, and Tailwind CSS for a modern, performant experience.
 
 **Community Edition**: No limits, no subscriptions, no cloud dependencies—just pure AI performance on your own hardware.
 
